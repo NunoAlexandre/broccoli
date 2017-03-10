@@ -38,6 +38,6 @@ config :server, Server.Repo,
   adapter: Ecto.Adapters.Postgres,
   username: "nuno",
   password: "",
-  database: "work_satisfaction",
+  database: "broccoli",
   hostname: "localhost",
   pool_size: 10

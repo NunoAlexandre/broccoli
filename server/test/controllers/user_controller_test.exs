@@ -2,7 +2,7 @@ defmodule Server.UserControllerTest do
   use Server.ConnCase
 
   alias Server.User
-  @valid_attrs %{birth_date: %{day: 17, month: 4, year: 2010}, crypted_password: "some content", email: "some content", name: "some content"}
+  @valid_attrs %{birth_date: %{day: 17, month: 4, year: 2010}, hashed_password: "some content", email: "some content", name: "some content"}
   @invalid_attrs %{}
 
   test "lists all entries on index", %{conn: conn} do

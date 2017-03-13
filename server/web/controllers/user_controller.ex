@@ -4,8 +4,7 @@ defmodule Server.UserController do
   alias Server.User
 
   def index(conn, _params) do
-    users = Repo.all(User)
-    render(conn, "index.html", users: users)
+    render(conn, "index.html", users: Repo.all(User))
   end
 
   def new(conn, _params) do

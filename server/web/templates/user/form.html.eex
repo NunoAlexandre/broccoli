@@ -18,9 +18,9 @@
   </div>
 
   <div class="form-group">
-    <%= label f, :crypted_password, class: "control-label" %>
-    <%= text_input f, :crypted_password, class: "form-control" %>
-    <%= error_tag f, :crypted_password %>
+    <%= label f, :hashed_password, class: "control-label" %>
+    <%= text_input f, :password, class: "form-control" %>
+    <%= error_tag f, :hashed_password %>
   </div>
 
   <div class="form-group">

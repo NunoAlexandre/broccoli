@@ -5,7 +5,6 @@
     <tr>
       <th>Name</th>
       <th>Email</th>
-      <th>Crypted password</th>
       <th>Birth date</th>
 
       <th></th>
@@ -16,7 +15,6 @@
     <tr>
       <td><%= user.name %></td>
       <td><%= user.email %></td>
-      <td><%= user.crypted_password %></td>
       <td><%= user.birth_date %></td>
 
       <td class="text-right">

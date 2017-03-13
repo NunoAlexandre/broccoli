@@ -1,11 +1,13 @@
 defmodule Server.User do
   use Server.Web, :model
+  import Doorman.Auth.Bcrypt, only: [hash_password: 1]
 
   schema "users" do
     field :name, :string
     field :email, :string
-    field :crypted_password, :string
+    field :hashed_password, :string
     field :birth_date, Ecto.Date
+    field :password, :string, virtual: true
 
     timestamps()
   end
@@ -15,8 +17,10 @@ defmodule Server.User do
   """
   def changeset(struct, params \\ %{}) do
     struct
-    |> cast(params, [:name, :email, :crypted_password, :birth_date])
-    |> validate_required([:name, :email, :crypted_password, :birth_date])
+    |> cast(params, [:name, :email, :password, :birth_date])
+    |> validate_required([:name, :email, :password, :birth_date])
     |> unique_constraint(:email)
+    |> hash_password
   end
+
 end

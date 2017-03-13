@@ -9,6 +9,12 @@ use Mix.Config
 config :server,
   ecto_repos: [Server.Repo]
 
+# Authentication Configuration
+config :doorman,
+  repo: Server.Repo,
+  secure_with: Doorman.Auth.Bcrypt,
+  user_module: Server.User
+
 # Configures the endpoint
 config :server, Server.Endpoint,
   url: [host: "localhost"],

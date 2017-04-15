@@ -38,7 +38,8 @@ defmodule Server.Mixfile do
      {:phoenix_live_reload, "~> 1.0", only: :dev},
      {:gettext, "~> 0.11"},
      {:cowboy, "~> 1.0"},
-     {:doorman, "~> 0.5.1"}
+     {:doorman, "~> 0.5.1"},
+     {:ecto_enum, "~> 1.0"}
     ]
   end
 

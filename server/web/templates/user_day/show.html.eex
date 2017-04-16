@@ -1,0 +1,23 @@
+<h2>Show user day</h2>
+
+<ul>
+
+  <li>
+    <strong>User:</strong>
+    <%= @user_day.user_id %>
+  </li>
+
+  <li>
+    <strong>Level:</strong>
+    <%= @user_day.level %>
+  </li>
+
+  <li>
+    <strong>Note:</strong>
+    <%= @user_day.note %>
+  </li>
+
+</ul>
+
+<%= link "Edit", to: user_day_path(@conn, :edit, @user_day) %>
+<%= link "Back", to: user_day_path(@conn, :index) %>

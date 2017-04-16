@@ -19,10 +19,12 @@ defmodule Server.Router do
 
     get "/", PageController, :index
     resources "/users", UserController
+    resources "/days", UserDayController
   end
 
-  # Other scopes may use custom stacks.
-  # scope "/api", Server do
-  #   pipe_through :api
-  # end
+  scope "/api", Server do
+    pipe_through :api
+
+    resources "/days", UserDayController
+  end
 end

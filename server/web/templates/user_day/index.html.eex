@@ -1,0 +1,30 @@
+<h2>Listing user day</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Level</th>
+      <th>Note</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for user_day <- @user_day do %>
+    <tr>
+      <td><%= user_day.user_id %></td>
+      <td><%= user_day.level %></td>
+      <td><%= user_day.note %></td>
+
+      <td class="text-right">
+        <%= link "Show", to: user_day_path(@conn, :show, user_day), class: "btn btn-default btn-xs" %>
+        <%= link "Edit", to: user_day_path(@conn, :edit, user_day), class: "btn btn-default btn-xs" %>
+        <%= link "Delete", to: user_day_path(@conn, :delete, user_day), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<%= link "New user day", to: user_day_path(@conn, :new) %>

@@ -1,0 +1,95 @@
+.......
+
+  1) test does not create resource and renders errors when data is invalid (Server.UserDayControllerTest)
+     test/controllers/user_day_controller_test.exs:24
+     ** (UndefinedFunctionError) function Ecto.Changeset.fetch/2 is undefined (Ecto.Changeset does not implement the Access behaviour)
+     stacktrace:
+       (ecto) Ecto.Changeset.fetch(#Ecto.Changeset<action: :insert, changes: %{}, errors: [user_id: {"can't be blank", [validation: :required]}, level: {"can't be blank", [validation: :required]}, note: {"can't be blank", [validation: :required]}], data: #Server.UserDay<>, valid?: false>, :conn)
+       (elixir) lib/access.ex:240: Access.fetch/2
+       (phoenix_html) lib/phoenix_html/engine.ex:99: Phoenix.HTML.Engine.fetch_assign/2
+       (server) web/templates/layout/app.html.eex:11: Server.LayoutView."app.html"/1
+       (phoenix) lib/phoenix/view.ex:335: Phoenix.View.render_to_iodata/3
+       (phoenix) lib/phoenix/controller.ex:642: Phoenix.Controller.do_render/4
+       (server) web/controllers/user_day_controller.ex:1: Server.UserDayController.action/2
+       (server) web/controllers/user_day_controller.ex:1: Server.UserDayController.phoenix_controller_pipeline/2
+       (server) lib/server/endpoint.ex:1: Server.Endpoint.instrument/4
+       (server) lib/phoenix/router.ex:261: Server.Router.dispatch/2
+       (server) web/router.ex:1: Server.Router.do_call/2
+       (server) lib/server/endpoint.ex:1: Server.Endpoint.phoenix_pipeline/1
+       (server) lib/server/endpoint.ex:1: Server.Endpoint.call/2
+       (phoenix) lib/phoenix/test/conn_test.ex:224: Phoenix.ConnTest.dispatch/5
+       test/controllers/user_day_controller_test.exs:25: (test)
+
+..
+
+  2) test creates resource and redirects when data is valid (Server.UserDayControllerTest)
+     test/controllers/user_day_controller_test.exs:18
+     ** (UndefinedFunctionError) function Ecto.Changeset.fetch/2 is undefined (Ecto.Changeset does not implement the Access behaviour)
+     stacktrace:
+       (ecto) Ecto.Changeset.fetch(#Ecto.Changeset<action: :insert, changes: %{note: "some content"}, errors: [user_id: {"can't be blank", [validation: :required]}, level: {"can't be blank", [validation: :required]}], data: #Server.UserDay<>, valid?: false>, :conn)
+       (elixir) lib/access.ex:240: Access.fetch/2
+       (phoenix_html) lib/phoenix_html/engine.ex:99: Phoenix.HTML.Engine.fetch_assign/2
+       (server) web/templates/layout/app.html.eex:11: Server.LayoutView."app.html"/1
+       (phoenix) lib/phoenix/view.ex:335: Phoenix.View.render_to_iodata/3
+       (phoenix) lib/phoenix/controller.ex:642: Phoenix.Controller.do_render/4
+       (server) web/controllers/user_day_controller.ex:1: Server.UserDayController.action/2
+       (server) web/controllers/user_day_controller.ex:1: Server.UserDayController.phoenix_controller_pipeline/2
+       (server) lib/server/endpoint.ex:1: Server.Endpoint.instrument/4
+       (server) lib/phoenix/router.ex:261: Server.Router.dispatch/2
+       (server) web/router.ex:1: Server.Router.do_call/2
+       (server) lib/server/endpoint.ex:1: Server.Endpoint.phoenix_pipeline/1
+       (server) lib/server/endpoint.ex:1: Server.Endpoint.call/2
+       (phoenix) lib/phoenix/test/conn_test.ex:224: Phoenix.ConnTest.dispatch/5
+       test/controllers/user_day_controller_test.exs:19: (test)
+
+
+
+  3) test updates chosen resource and redirects when data is valid (Server.UserDayControllerTest)
+     test/controllers/user_day_controller_test.exs:47
+     ** (RuntimeError) expected redirection with status 302, got: 200
+     stacktrace:
+       (phoenix) lib/phoenix/test/conn_test.ex:443: Phoenix.ConnTest.redirected_to/2
+       test/controllers/user_day_controller_test.exs:50: (test)
+
+........
+
+  4) test creates resource and redirects when data is valid (Server.UserControllerTest)
+     test/controllers/user_controller_test.exs:18
+     ** (RuntimeError) expected redirection with status 302, got: 200
+     stacktrace:
+       (phoenix) lib/phoenix/test/conn_test.ex:443: Phoenix.ConnTest.redirected_to/2
+       test/controllers/user_controller_test.exs:20: (test)
+
+
+
+  5) test updates chosen resource and redirects when data is valid (Server.UserControllerTest)
+     test/controllers/user_controller_test.exs:47
+     ** (RuntimeError) expected redirection with status 302, got: 200
+     stacktrace:
+       (phoenix) lib/phoenix/test/conn_test.ex:443: Phoenix.ConnTest.redirected_to/2
+       test/controllers/user_controller_test.exs:50: (test)
+
+..
+
+  6) test changeset with valid attributes (Server.UserTest)
+     test/models/user_test.exs:9
+     Expected truthy, got false
+     code: changeset.valid?()
+     stacktrace:
+       test/models/user_test.exs:11: (test)
+
+.
+
+  7) test changeset with valid attributes (Server.UserDayTest)
+     test/models/user_day_test.exs:9
+     Expected truthy, got false
+     code: changeset.valid?()
+     stacktrace:
+       test/models/user_day_test.exs:11: (test)
+
+.
+
+Finished in 0.3 seconds
+28 tests, 7 failures
+
+Randomized with seed 19384

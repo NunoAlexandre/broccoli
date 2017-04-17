@@ -3,39 +3,30 @@ defmodule Server.UserDayController do
 
   alias Server.UserDay
 
-  plug :scrub_params, "user_day" when action in [:create, :update]
-
   def index(conn, _params) do
     user_day = Repo.all(UserDay)
-    render(conn, "index.html", user_day: user_day)
-  end
-
-  def new(conn, _params) do
-    changeset = UserDay.changeset(%UserDay{user_id: 0})
-    render(conn, "new.html", changeset: changeset)
+    render(conn, "index.json", user_day: user_day)
   end
 
   def create(conn, %{"user_day" => user_day_params}) do
     changeset = UserDay.changeset(%UserDay{}, user_day_params)
+
     case Repo.insert(changeset) do
       {:ok, user_day} ->
         conn
         |> put_status(:created)
-        |> render(user_day: user_day)
+        |> put_resp_header("location", user_day_path(conn, :show, user_day))
+        |> render("show.json", user_day: user_day)
       {:error, changeset} ->
-        render(conn, changeset)
+        conn
+        |> put_status(:unprocessable_entity)
+        |> render(Server.ChangesetView, "error.json", changeset: changeset)
     end
   end
 
   def show(conn, %{"id" => id}) do
     user_day = Repo.get!(UserDay, id)
-    render(conn, "show.html", user_day: user_day)
-  end
-
-  def edit(conn, %{"id" => id}) do
-    user_day = Repo.get!(UserDay, id)
-    changeset = UserDay.changeset(user_day)
-    render(conn, "edit.html", user_day: user_day, changeset: changeset)
+    render(conn, "show.json", user_day: user_day)
   end
 
   def update(conn, %{"id" => id, "user_day" => user_day_params}) do
@@ -44,11 +35,11 @@ defmodule Server.UserDayController do
 
     case Repo.update(changeset) do
       {:ok, user_day} ->
-        conn
-        |> put_flash(:info, "User day updated successfully.")
-        |> redirect(to: user_day_path(conn, :show, user_day))
+        render(conn, "show.json", user_day: user_day)
       {:error, changeset} ->
-        render(conn, "edit.html", user_day: user_day, changeset: changeset)
+        conn
+        |> put_status(:unprocessable_entity)
+        |> render(Server.ChangesetView, "error.json", changeset: changeset)
     end
   end
 
@@ -59,8 +50,6 @@ defmodule Server.UserDayController do
     # it to always work (and if it does not, it will raise).
     Repo.delete!(user_day)
 
-    conn
-    |> put_flash(:info, "User day deleted successfully.")
-    |> redirect(to: user_day_path(conn, :index))
+    send_resp(conn, :no_content, "")
   end
 end

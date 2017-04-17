@@ -19,9 +19,10 @@ defmodule Server.UserDayController do
     # user: Repo.get!(Server.User, 1)
     changeset = UserDay.changeset(%UserDay{}, user_day_params)
     case Repo.insert(changeset) do
-      {:ok, _user_day} ->
+      {:ok, user_day} ->
         conn
         |> put_status(:created)
+        |> render(user_day: user_day)
       {:error, changeset} ->
         render(conn, changeset)
     end

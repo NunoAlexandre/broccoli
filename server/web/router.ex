@@ -23,7 +23,7 @@ defmodule Server.Router do
 
   scope "/api", Server do
     pipe_through :api
-    resources "/user", UserController, except: [:new, :edit]
+    resources "/users", UserController, except: [:new, :edit]
     resources "/days", UserDayController, except: [:new, :edit]
   end
 end

@@ -1,6 +1,8 @@
 defmodule Server.UserDay do
   use Server.Web, :model
 
+  @derive {Poison.Encoder, only: [:user_id, :note, :level]}
+
   schema "user_day" do
     field :note, :string
     field :level, Level

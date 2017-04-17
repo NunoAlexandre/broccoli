@@ -2,7 +2,8 @@ defmodule Server.UserControllerTest do
   use Server.ConnCase
 
   alias Server.User
-  @valid_attrs %{email: "some content", hashed_password: "some content", name: "some content"}
+  @valid_attrs_create %{email: "some content", password: "some content", name: "some content"}
+  @valid_attrs %{email: "some content", name: "some content"}
   @invalid_attrs %{}
 
   setup %{conn: conn} do
@@ -30,7 +31,7 @@ defmodule Server.UserControllerTest do
   end
 
   test "creates and renders resource when data is valid", %{conn: conn} do
-    conn = post conn, user_path(conn, :create), user: @valid_attrs
+    conn = post conn, user_path(conn, :create), user: @valid_attrs_create
     assert json_response(conn, 201)["data"]["id"]
     assert Repo.get_by(User, @valid_attrs)
   end

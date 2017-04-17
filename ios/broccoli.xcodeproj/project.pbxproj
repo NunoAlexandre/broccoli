@@ -15,6 +15,7 @@
 		BC8B3D921EA50AAE000BC305 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BC8B3D901EA50AAE000BC305 /* LaunchScreen.storyboard */; };
 		BC8B3D9D1EA50AAE000BC305 /* broccoliTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8B3D9C1EA50AAE000BC305 /* broccoliTests.swift */; };
 		BC8B3DA81EA50AAE000BC305 /* broccoliUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8B3DA71EA50AAE000BC305 /* broccoliUITests.swift */; };
+		BC8B3DB71EA522CB000BC305 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC8B3DB61EA522CB000BC305 /* Alamofire.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		BC8B3DA31EA50AAE000BC305 /* broccoliUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = broccoliUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC8B3DA71EA50AAE000BC305 /* broccoliUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = broccoliUITests.swift; sourceTree = "<group>"; };
 		BC8B3DA91EA50AAE000BC305 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BC8B3DB61EA522CB000BC305 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BC8B3DB71EA522CB000BC305 /* Alamofire.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,6 +86,7 @@
 				BC8B3D9B1EA50AAE000BC305 /* broccoliTests */,
 				BC8B3DA61EA50AAE000BC305 /* broccoliUITests */,
 				BC8B3D831EA50AAE000BC305 /* Products */,
+				BC8B3DB51EA522CB000BC305 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -128,6 +132,14 @@
 			path = broccoliUITests;
 			sourceTree = "<group>";
 		};
+		BC8B3DB51EA522CB000BC305 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BC8B3DB61EA522CB000BC305 /* Alamofire.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -138,6 +150,7 @@
 				BC8B3D7E1EA50AAE000BC305 /* Sources */,
 				BC8B3D7F1EA50AAE000BC305 /* Frameworks */,
 				BC8B3D801EA50AAE000BC305 /* Resources */,
+				BC8B3DB81EA52310000BC305 /* Run Script */,
 			);
 			buildRules = (
 			);
@@ -257,6 +270,24 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		BC8B3DB81EA52310000BC305 /* Run Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
+			);
+			name = "Run Script";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		BC8B3D7E1EA50AAE000BC305 /* Sources */ = {
@@ -420,6 +451,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = NR4448Q277;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = broccoli/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.nunoalexandre.broccoli;
@@ -433,6 +468,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = NR4448Q277;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = broccoli/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.nunoalexandre.broccoli;

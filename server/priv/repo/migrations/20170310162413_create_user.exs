@@ -2,15 +2,14 @@ defmodule Server.Repo.Migrations.CreateUser do
   use Ecto.Migration
 
   def change do
-    create table(:users) do
+    create table(:user) do
       add :name, :string
       add :email, :string
       add :hashed_password, :string
-      add :birth_date, :date
-
+      
       timestamps()
     end
-    create unique_index(:users, [:email])
+    create unique_index(:user, [:email])
 
   end
 end

@@ -15,16 +15,15 @@ defmodule Server.Router do
   end
 
   scope "/", Server do
-    pipe_through :browser # Use the default browser stack
+    pipe_through :browser
 
     get "/", PageController, :index
-    resources "/users", UserController
-    resources "/days", UserDayController
+
   end
 
   scope "/api", Server do
     pipe_through :api
-
-    resources "/days", UserDayController
+    resources "/user", UserController, except: [:new, :edit]
+    resources "/days", UserDayController, except: [:new, :edit]
   end
 end

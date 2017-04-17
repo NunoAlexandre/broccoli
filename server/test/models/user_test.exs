@@ -3,7 +3,7 @@ defmodule Server.UserTest do
 
   alias Server.User
 
-  @valid_attrs %{birth_date: %{day: 17, month: 4, year: 2010}, hashed_password: "some content", email: "some content", name: "some content"}
+  @valid_attrs %{email: "some content", hashed_password: "some content", name: "some content"}
   @invalid_attrs %{}
 
   test "changeset with valid attributes" do

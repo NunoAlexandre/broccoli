@@ -7,7 +7,7 @@ defmodule Server.Repo.Migrations.CreateUserDay do
       add :day, :date
       add :level, :level
       add :note, :string
-      add :user_id, references(:users, on_delete: :nothing)
+      add :user_id, references(:user, on_delete: :nothing)
 
 
       timestamps()

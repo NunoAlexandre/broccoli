@@ -10,9 +10,22 @@ import UIKit
 import Alamofire
 
 class FirstViewController: UIViewController {
+    @IBOutlet weak var signupButton: UIButton!
+    @IBOutlet weak var name: UITextField!
+    @IBOutlet weak var email: UITextField!
+    @IBOutlet weak var password: UITextField!
 
+    @IBAction func signup(_ sender: UIButton) {
+        let parameters: [String: Any] = ["user": ["name" : name.text!, "email" : email.text!, "password" : password.text!]]
+        
+        Alamofire.request("http://192.168.178.206:4000/api/users", method: .post, parameters: parameters, encoding: JSONEncoding.default)
+            .responseJSON { response in print(response) }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
         Alamofire.request("http://192.168.178.206:4000/api/users").responseJSON { response in
             print(response.request ?? "no request")  // original URL request
             print(response.response ?? "no response") // HTTP URL response

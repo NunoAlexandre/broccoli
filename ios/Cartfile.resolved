@@ -1,1 +1,3 @@
 github "Alamofire/Alamofire" "4.4.0"
+github "EurekaCommunity/GenericPasswordRow" "1.0.0"
+github "xmartlabs/Eureka" "2.0.1"

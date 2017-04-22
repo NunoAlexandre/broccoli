@@ -14,7 +14,18 @@ class SignupViewController : FormViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        form +++ Section()
+        
+        form +++ Section("Become a Broccoli!") { section in
+                var customSection = HeaderFooterView<UIView>(.class)
+                customSection.onSetupView = { view, section in
+                    view.backgroundColor = .white
+                }
+                section.header = customSection
+                section.header?.height = {0}
+                section.footer = customSection
+                section.footer?.height = {60}
+                section.reload()
+            }
             <<< NameRow() {
                     $0.tag = "name"
                     $0.title = "Name"
@@ -51,15 +62,20 @@ class SignupViewController : FormViewController {
                         cell.titleLabel?.textColor = .red
                     }
                 }
-            <<< ButtonRow() {
-                    $0.title = "Signup"
-                }.onCellSelection {  cell, row in
+            <<< ButtonRow() { row in
+                    row.title = "Signup"
+                }
+                .cellSetup { cell, row in
+                    cell.height = {90}
+                }
+                .onCellSelection {  cell, row in
                     let parameters: [String: Any] = ["user": ["name" : self.form.values()["name"] as! String, "email" : self.form.values()["email"] as! String, "password" : self.form.values()["password"] as! String]]
                     
                     Alamofire.request("http://192.168.178.206:4000/api/users", method: .post, parameters: parameters, encoding: JSONEncoding.default)
                         .responseJSON { response in print(response) }
 
                 }
+        
     }
     
     override func loadView() {

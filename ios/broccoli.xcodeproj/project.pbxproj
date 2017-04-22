@@ -111,11 +111,11 @@
 				BC8B3D851EA50AAE000BC305 /* AppDelegate.swift */,
 				BC8B3D871EA50AAE000BC305 /* FirstViewController.swift */,
 				BC8B3D891EA50AAE000BC305 /* SecondViewController.swift */,
+				BC17D55A1EA690C50015FD52 /* SignupViewController.swift */,
 				BC8B3D8B1EA50AAE000BC305 /* Main.storyboard */,
 				BC8B3D8E1EA50AAE000BC305 /* Assets.xcassets */,
 				BC8B3D901EA50AAE000BC305 /* LaunchScreen.storyboard */,
 				BC8B3D931EA50AAE000BC305 /* Info.plist */,
-				BC17D55A1EA690C50015FD52 /* SignupViewController.swift */,
 			);
 			path = broccoli;
 			sourceTree = "<group>";

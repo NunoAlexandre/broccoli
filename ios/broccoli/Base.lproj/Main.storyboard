@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--First-->
+        <!--Login-->
         <scene sceneID="hNz-n2-bh7">
             <objects>
-                <viewController id="9pv-A4-QxB" customClass="FirstViewController" customModule="broccoli" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="9pv-A4-QxB" customClass="LoginViewController" customModule="broccoli" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Ia1-K6-d13"/>
                         <viewControllerLayoutGuide type="bottom" id="4ug-Mw-9AY"/>
@@ -99,22 +99,16 @@
                             <constraint firstAttribute="centerY" secondItem="KQZ-1w-vlD" secondAttribute="centerY" constant="231" id="exm-UA-ej4"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="First" image="first" id="acW-dT-cKf"/>
-                    <connections>
-                        <outlet property="email" destination="DYc-w7-7yP" id="xh6-h7-TDO"/>
-                        <outlet property="name" destination="Lwx-NM-erA" id="meB-gi-eK5"/>
-                        <outlet property="password" destination="4GK-PX-52o" id="WUD-gQ-ysV"/>
-                        <outlet property="signupButton" destination="Wy0-Wq-nlo" id="E22-XL-J7Q"/>
-                    </connections>
+                    <tabBarItem key="tabBarItem" title="Login" image="first" id="acW-dT-cKf"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="748.125" y="-321.12676056338029"/>
         </scene>
-        <!--Second-->
+        <!--Signup-->
         <scene sceneID="wg7-f3-ORb">
             <objects>
-                <viewController id="8rJ-Kc-sve" customClass="SecondViewController" customModule="broccoli" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="8rJ-Kc-sve" userLabel="Signup" customClass="SignupViewController" customModule="broccoli" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="L7p-HK-0SC"/>
                         <viewControllerLayoutGuide type="bottom" id="Djb-ko-YwX"/>
@@ -159,7 +153,7 @@
                             <constraint firstItem="azq-Ry-OZY" firstAttribute="centerX" secondItem="Lf0-u2-yoY" secondAttribute="centerX" id="vix-Fz-mAn"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Second" image="second" id="cPa-gy-q4n"/>
+                    <tabBarItem key="tabBarItem" title="Signup" image="second" id="cPa-gy-q4n"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
@@ -184,10 +178,10 @@
             </objects>
             <point key="canvasLocation" x="0.0" y="0.0"/>
         </scene>
-        <!--Signup View Controller-->
+        <!--Signup Form View Controller-->
         <scene sceneID="ewQ-mT-br2">
             <objects>
-                <viewController id="SIK-sS-p9k" customClass="SignupViewController" customModule="broccoli" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="SIK-sS-p9k" customClass="SignupFormViewController" customModule="broccoli" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="aDc-mi-P0d"/>
                         <viewControllerLayoutGuide type="bottom" id="5rN-Iu-E3e"/>

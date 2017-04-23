@@ -8,10 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		BC17D5591EA68BFA0015FD52 /* Eureka.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC17D5581EA68BFA0015FD52 /* Eureka.framework */; };
-		BC17D55B1EA690C50015FD52 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC17D55A1EA690C50015FD52 /* SignupViewController.swift */; };
+		BC17D55B1EA690C50015FD52 /* SignupFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC17D55A1EA690C50015FD52 /* SignupFormViewController.swift */; };
 		BC8B3D861EA50AAE000BC305 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8B3D851EA50AAE000BC305 /* AppDelegate.swift */; };
-		BC8B3D881EA50AAE000BC305 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8B3D871EA50AAE000BC305 /* FirstViewController.swift */; };
-		BC8B3D8A1EA50AAE000BC305 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8B3D891EA50AAE000BC305 /* SecondViewController.swift */; };
+		BC8B3D881EA50AAE000BC305 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8B3D871EA50AAE000BC305 /* LoginViewController.swift */; };
+		BC8B3D8A1EA50AAE000BC305 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8B3D891EA50AAE000BC305 /* SignupViewController.swift */; };
 		BC8B3D8D1EA50AAE000BC305 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BC8B3D8B1EA50AAE000BC305 /* Main.storyboard */; };
 		BC8B3D8F1EA50AAE000BC305 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BC8B3D8E1EA50AAE000BC305 /* Assets.xcassets */; };
 		BC8B3D921EA50AAE000BC305 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BC8B3D901EA50AAE000BC305 /* LaunchScreen.storyboard */; };
@@ -39,11 +39,11 @@
 
 /* Begin PBXFileReference section */
 		BC17D5581EA68BFA0015FD52 /* Eureka.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Eureka.framework; path = Carthage/Build/iOS/Eureka.framework; sourceTree = "<group>"; };
-		BC17D55A1EA690C50015FD52 /* SignupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
+		BC17D55A1EA690C50015FD52 /* SignupFormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupFormViewController.swift; sourceTree = "<group>"; };
 		BC8B3D821EA50AAE000BC305 /* broccoli.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = broccoli.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC8B3D851EA50AAE000BC305 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		BC8B3D871EA50AAE000BC305 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
-		BC8B3D891EA50AAE000BC305 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		BC8B3D871EA50AAE000BC305 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		BC8B3D891EA50AAE000BC305 /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		BC8B3D8C1EA50AAE000BC305 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BC8B3D8E1EA50AAE000BC305 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BC8B3D911EA50AAE000BC305 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -109,9 +109,9 @@
 			isa = PBXGroup;
 			children = (
 				BC8B3D851EA50AAE000BC305 /* AppDelegate.swift */,
-				BC8B3D871EA50AAE000BC305 /* FirstViewController.swift */,
-				BC8B3D891EA50AAE000BC305 /* SecondViewController.swift */,
-				BC17D55A1EA690C50015FD52 /* SignupViewController.swift */,
+				BC8B3D871EA50AAE000BC305 /* LoginViewController.swift */,
+				BC8B3D891EA50AAE000BC305 /* SignupViewController.swift */,
+				BC17D55A1EA690C50015FD52 /* SignupFormViewController.swift */,
 				BC8B3D8B1EA50AAE000BC305 /* Main.storyboard */,
 				BC8B3D8E1EA50AAE000BC305 /* Assets.xcassets */,
 				BC8B3D901EA50AAE000BC305 /* LaunchScreen.storyboard */,
@@ -302,10 +302,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BC8B3D8A1EA50AAE000BC305 /* SecondViewController.swift in Sources */,
+				BC8B3D8A1EA50AAE000BC305 /* SignupViewController.swift in Sources */,
 				BC8B3D861EA50AAE000BC305 /* AppDelegate.swift in Sources */,
-				BC17D55B1EA690C50015FD52 /* SignupViewController.swift in Sources */,
-				BC8B3D881EA50AAE000BC305 /* FirstViewController.swift in Sources */,
+				BC17D55B1EA690C50015FD52 /* SignupFormViewController.swift in Sources */,
+				BC8B3D881EA50AAE000BC305 /* LoginViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

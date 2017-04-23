@@ -16,7 +16,7 @@ class LoginViewController : FormViewController {
         super.viewDidLoad()
         
         form +++ Section() { section in
-            var customSection = HeaderFooterView<UIView>(.class)
+            var customSection = HeaderFooterView<UIStackView>(.class)
             customSection.onSetupView = { view, section in
                 view.backgroundColor = .white
             }
@@ -48,10 +48,10 @@ class LoginViewController : FormViewController {
                 row.cell.height = {90}
                 }
                 .onCellSelection {  cell, row in
-                    let parameters = ["credentials": ["email" : self.form.values()["email"] as! String,
+                    let credentials = ["credentials": ["email" : self.form.values()["email"] as! String,
                                                       "password" : self.form.values()["password"] as! String]]
                     
-                    Alamofire.request("http://192.168.178.206:4000/api/authenticate", method: .post, parameters: parameters, encoding: JSONEncoding.default)
+                    Alamofire.request("http://192.168.178.206:4000/api/authenticate", method: .post, parameters: credentials, encoding: JSONEncoding.default)
                         .responseJSON { response in
                             print(response)
                             if let status = response.response?.statusCode {
@@ -60,8 +60,9 @@ class LoginViewController : FormViewController {
                                     let alert = UIAlertController(title: "Authenticated!",
                                                                   message: "Hi broccoli! :)",
                                                                   preferredStyle: .alert)
-                                    alert.addAction(UIAlertAction(title: "Yay", style: .default, handler: { (action) -> Void in }))
+                                    alert.addAction(UIAlertAction(title: "Yay", style: .default, handler: { (action) -> Void in self.performSegue(withIdentifier: "segueOnSuccessfulLogin", sender: nil) }))
                                     self.present(alert, animated: true, completion: nil)
+//                                    UserDefaults.standard.setValue(credentials.first!, forKey: "credentials")
                                 case 404:
                                     let alert = UIAlertController(title: "Ups!",
                                                                   message: "Invalid credentials...",
@@ -76,10 +77,10 @@ class LoginViewController : FormViewController {
         }
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    override func loadView() {
+        super.loadView()
     }
+
     
     
 }

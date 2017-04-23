@@ -24,7 +24,7 @@ class UserDayFormViewController: FormViewController {
             <<< ActionSheetRow<String>("level") {
                 $0.title = "My day was a..."
                 $0.selectorTitle = "Pick a number"
-                $0.options = ["one","two","three", "five", "eight", "twenty-one"]
+                $0.options = ["one","two","three", "five", "eight", "twenty_one"]
                 $0.add(rule: RuleRequired())
 //                $0.value = "Two"    // initially selected
             }

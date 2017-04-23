@@ -16,15 +16,15 @@ class LoginViewController : FormViewController {
         super.viewDidLoad()
         
         form +++ Section() { section in
-                var customSection = HeaderFooterView<UIView>(.class)
-                customSection.onSetupView = { view, section in
-                    view.backgroundColor = .white
-                }
-                section.header = customSection
-                section.header?.height = {0}
-                section.footer = customSection
-                section.footer?.height = {60}
-                section.reload()
+            var customSection = HeaderFooterView<UIView>(.class)
+            customSection.onSetupView = { view, section in
+                view.backgroundColor = .white
+            }
+            section.header = customSection
+            section.header?.height = {0}
+            section.footer = customSection
+            section.footer?.height = {60}
+            section.reload()
             }
             <<< EmailRow() {
                 $0.tag = "email"
@@ -32,9 +32,9 @@ class LoginViewController : FormViewController {
                 $0.placeholder = "your email goes here"
                 $0.add(rule: RuleRequired())
                 $0.add(rule: RuleEmail())
-            }
-            .cellUpdate { cell, row in
-                if !row.isValid { cell.titleLabel?.textColor = .red }
+                }
+                .cellUpdate { cell, row in
+                    if !row.isValid { cell.titleLabel?.textColor = .red }
             }
             <<< PasswordRow() {
                 $0.tag = "password"
@@ -44,8 +44,8 @@ class LoginViewController : FormViewController {
                 $0.add(rule: RuleMinLength(minLength: 8))
             }
             <<< ButtonRow() { row in
-                    row.title = "Login"
-                    row.cell.height = {90}
+                row.title = "Login"
+                row.cell.height = {90}
                 }
                 .onCellSelection {  cell, row in
                     let parameters = ["credentials": ["email" : self.form.values()["email"] as! String,
@@ -58,7 +58,7 @@ class LoginViewController : FormViewController {
                                 switch(status) {
                                 case 200:
                                     let alert = UIAlertController(title: "Authenticated!",
-                                                            message: "Hi broccoli! :)",
+                                                                  message: "Hi broccoli! :)",
                                                                   preferredStyle: .alert)
                                     alert.addAction(UIAlertAction(title: "Yay", style: .default, handler: { (action) -> Void in }))
                                     self.present(alert, animated: true, completion: nil)
@@ -72,29 +72,15 @@ class LoginViewController : FormViewController {
                                     print("error with response status: \(status)")
                                 }
                             }
-                            
-                    }
+                        }
         }
-
-        
-        
-//        Alamofire.request("http://192.168.178.206:4000/api/users").responseJSON { response in
-//            print(response.request ?? "no request")  // original URL request
-//            print(response.response ?? "no response") // HTTP URL response
-//            print(response.data ?? "no data")     // server data
-//            print(response.result)   // result of response serialization
-//            
-//            if let JSON = response.result.value {
-//                print("JSON: \(JSON)")
-//            }
-//        }
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-
+    
+    
 }
 

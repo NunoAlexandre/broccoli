@@ -12,6 +12,7 @@ defmodule Server.Router do
 
   pipeline :api do
     plug :accepts, ["json"]
+    # plug Doorman.Login.Session
   end
 
   scope "/", Server do
@@ -23,7 +24,10 @@ defmodule Server.Router do
 
   scope "/api", Server do
     pipe_through :api
+
     resources "/users", UserController, except: [:new, :edit]
     resources "/days", UserDayController, except: [:new, :edit]
+    post "/authenticate", AuthenticationController, :index
+
   end
 end

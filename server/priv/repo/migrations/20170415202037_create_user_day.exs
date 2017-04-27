@@ -4,10 +4,10 @@ defmodule Server.Repo.Migrations.CreateUserDay do
   def change do
     Level.create_type
     create table(:user_day) do
-      add :day, :date
-      add :level, :level
-      add :note, :string
-      add :user_id, references(:user, on_delete: :nothing)
+      add :day, :date, null: false
+      add :level, :level, null: false
+      add :note, :string, null: false, size: 700, default: ""
+      add :user_id, references(:user, on_delete: :nothing), null: false
 
 
       timestamps()

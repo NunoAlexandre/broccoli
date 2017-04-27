@@ -12,7 +12,6 @@ defmodule Server.UserView do
   def render("user.json", %{user: user}) do
     %{id: user.id,
       name: user.name,
-      email: user.email,
-      hashed_password: user.hashed_password}
+      email: user.email}
   end
 end

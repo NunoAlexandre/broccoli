@@ -26,7 +26,6 @@ class UserDayFormViewController: FormViewController {
                 $0.selectorTitle = "Pick a number"
                 $0.options = ["one","two","three", "five", "eight", "twenty_one"]
                 $0.add(rule: RuleRequired())
-//                $0.value = "Two"    // initially selected
             }
             <<< TextAreaRow("note") { row in
                 row.title = "Note"

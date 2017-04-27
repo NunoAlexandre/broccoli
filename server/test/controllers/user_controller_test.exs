@@ -4,7 +4,7 @@ defmodule Server.UserControllerTest do
   alias Server.User
   @valid_attrs_create %{email: "some content", password: "some content", name: "some content"}
   @valid_attrs %{email: "some content", name: "some content"}
-  @invalid_attrs %{}
+  @invalid_attrs %{email: nil}
 
   setup %{conn: conn} do
     {:ok, conn: put_req_header(conn, "accept", "application/json")}
@@ -16,12 +16,11 @@ defmodule Server.UserControllerTest do
   end
 
   test "shows chosen resource", %{conn: conn} do
-    user = Repo.insert! %User{}
+    user = inserted_user()
     conn = get conn, user_path(conn, :show, user)
     assert json_response(conn, 200)["data"] == %{"id" => user.id,
       "name" => user.name,
-      "email" => user.email,
-      "hashed_password" => user.hashed_password}
+      "email" => user.email}
   end
 
   test "renders page not found when id is nonexistent", %{conn: conn} do
@@ -42,22 +41,27 @@ defmodule Server.UserControllerTest do
   end
 
   test "updates and renders chosen resource when data is valid", %{conn: conn} do
-    user = Repo.insert! %User{}
+    user = inserted_user()
     conn = put conn, user_path(conn, :update, user), user: @valid_attrs
     assert json_response(conn, 200)["data"]["id"]
     assert Repo.get_by(User, @valid_attrs)
   end
 
   test "does not update chosen resource and renders errors when data is invalid", %{conn: conn} do
-    user = Repo.insert! %User{}
-    conn = put conn, user_path(conn, :update, user), user: @invalid_attrs
+    user = inserted_user()
+    conn = put conn, user_path(conn, :update, %User{id: user.id}), user: @invalid_attrs
     assert json_response(conn, 422)["errors"] != %{}
   end
 
   test "deletes chosen resource", %{conn: conn} do
-    user = Repo.insert! %User{}
+    user = inserted_user()
     conn = delete conn, user_path(conn, :delete, user)
     assert response(conn, 204)
     refute Repo.get(User, user.id)
+  end
+
+
+  defp inserted_user do
+    Repo.insert! Server.User.create_changeset(%User{}, @valid_attrs_create)
   end
 end

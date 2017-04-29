@@ -1,0 +1,17 @@
+language: elixir
+elixir:
+  - 1.4.2
+otp_release:
+  - 19.0
+env: MIX_ENV=test
+services:
+  - postgresql
+sudo: false
+notifications:
+  email: false
+before_install:
+  - cd server
+before_script:
+  - psql -c 'create database broccoli_test;' -U postgres
+script:
+  - mix test

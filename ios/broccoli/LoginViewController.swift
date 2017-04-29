@@ -26,8 +26,7 @@ class LoginViewController : FormViewController {
             section.footer?.height = {60}
             section.reload()
             }
-            <<< EmailRow() {
-                $0.tag = "email"
+            <<< EmailRow("email") {
                 $0.title = "Email"
                 $0.placeholder = "your email goes here"
                 $0.add(rule: RuleRequired())
@@ -36,8 +35,7 @@ class LoginViewController : FormViewController {
                 .cellUpdate { cell, row in
                     if !row.isValid { cell.titleLabel?.textColor = .red }
             }
-            <<< PasswordRow() {
-                $0.tag = "password"
+            <<< PasswordRow("password") {
                 $0.title = "Password"
                 $0.placeholder = "password"
                 $0.add(rule: RuleRequired())
@@ -46,6 +44,9 @@ class LoginViewController : FormViewController {
             <<< ButtonRow() { row in
                 row.title = "Login"
                 row.cell.height = {90}
+                row.validationOptions = .validatesOnChangeAfterBlurred
+                row.disabled = Condition.function(["email", "password"], { form in
+                    !(form.rowBy(tag: "email")?.isValid ?? false && form.rowBy(tag: "password")?.isValid ?? false)})
                 }
                 .onCellSelection {  cell, row in
                     let credentials = ["credentials": ["email" : self.form.values()["email"] as! String,
@@ -62,7 +63,6 @@ class LoginViewController : FormViewController {
                                                                   preferredStyle: .alert)
                                     alert.addAction(UIAlertAction(title: "Yay", style: .default, handler: { (action) -> Void in self.performSegue(withIdentifier: "segueOnSuccessfulLogin", sender: nil) }))
                                     self.present(alert, animated: true, completion: nil)
-//                                    UserDefaults.standard.setValue(credentials.first!, forKey: "credentials")
                                 case 404:
                                     let alert = UIAlertController(title: "Ups!",
                                                                   message: "Invalid credentials...",

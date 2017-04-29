@@ -2,11 +2,7 @@ defmodule Server.UserController do
   use Server.Web, :controller
 
   alias Server.User
-
-  def index(conn, _params) do
-    user = Repo.all(User)
-    render(conn, "index.json", user: user)
-  end
+  
 
   def create(conn, %{"user" => user_params}) do
     changeset = User.create_changeset(%User{}, user_params)

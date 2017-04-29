@@ -1,2 +1,4 @@
 
 ios/Carthage
+
+*.sh

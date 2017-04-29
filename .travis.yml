@@ -12,6 +12,6 @@ notifications:
 before_install:
   - cd server
 before_script:
-  - psql -c 'create database broccoli_test;' -U nuno
+  - psql -c 'create database broccoli_test;' -U postgres
 script:
   - mix test

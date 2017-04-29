@@ -7,5 +7,7 @@ env: MIX_ENV=test
 sudo: false
 notifications:
   email: false
+before_install:
+  - cd server
 script:
   - mix test

@@ -43,7 +43,7 @@ class UserDayFormViewController: FormViewController {
                                                  "level" : self.form.values()["level"] as! String,
                                                  "note" : self.form.values()["note"] as! String]]
                     
-                    Alamofire.request("http://192.168.178.206:4000/api/days", method: .post, parameters: userDay, encoding: JSONEncoding.default)
+                    Alamofire.request("https://nabroccoli.herokuapp.com/api/days", method: .post, parameters: userDay, encoding: JSONEncoding.default)
                         .responseJSON { response in
                             print(response)
                             if let status = response.response?.statusCode {

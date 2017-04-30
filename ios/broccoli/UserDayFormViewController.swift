@@ -34,7 +34,6 @@ class UserDayFormViewController: FormViewController {
             <<< ButtonRow() { row in
                 row.title = "Save"
                 row.cell.height = {90}
-                row.disabled = Condition.function(["submission"], { form in form.allRows[0].isValid })
                 }
                 .onCellSelection {  cell, row in
                     let styled = DateFormatter()
@@ -43,7 +42,7 @@ class UserDayFormViewController: FormViewController {
                                                  "level" : self.form.values()["level"] as! String,
                                                  "note" : self.form.values()["note"] as! String]]
                     
-                    Alamofire.request("http://192.168.178.206:4000/api/days", method: .post, parameters: userDay, encoding: JSONEncoding.default)
+                    Alamofire.request("https://nabroccoli.herokuapp.com/api/days", method: .post, parameters: userDay, encoding: JSONEncoding.default)
                         .responseJSON { response in
                             print(response)
                             if let status = response.response?.statusCode {

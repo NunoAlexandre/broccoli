@@ -78,7 +78,7 @@ class SignupFormViewController : FormViewController {
                 .onCellSelection {  cell, row in
                     let parameters: [String: Any] = ["user": ["name" : self.form.values()["name"] as! String, "email" : self.form.values()["email"] as! String, "password" : self.form.values()["password"] as! String]]
                     
-                    Alamofire.request("http://192.168.178.206:4000/api/users", method: .post, parameters: parameters, encoding: JSONEncoding.default)
+                    Alamofire.request("https://nabroccoli.herokuapp.com/api/users", method: .post, parameters: parameters, encoding: JSONEncoding.default)
                         .responseJSON { response in
                             print(response)
                             //to get status code

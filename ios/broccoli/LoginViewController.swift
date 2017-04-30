@@ -52,7 +52,7 @@ class LoginViewController : FormViewController {
                     let credentials = ["credentials": ["email" : self.form.values()["email"] as! String,
                                                       "password" : self.form.values()["password"] as! String]]
                     
-                    Alamofire.request("http://192.168.178.206:4000/api/authenticate", method: .post, parameters: credentials, encoding: JSONEncoding.default)
+                    Alamofire.request("https://nabroccoli.herokuapp.com/api/authenticate", method: .post, parameters: credentials, encoding: JSONEncoding.default)
                         .responseJSON { response in
                             print(response)
                             if let status = response.response?.statusCode {

@@ -1,4 +1,4 @@
-defmodule Server.ChannelCase do
+defmodule Broccoli.ChannelCase do
   @moduledoc """
   This module defines the test case to be used by
   channel tests.
@@ -20,22 +20,22 @@ defmodule Server.ChannelCase do
       # Import conveniences for testing with channels
       use Phoenix.ChannelTest
 
-      alias Server.Repo
+      alias Broccoli.Repo
       import Ecto
       import Ecto.Changeset
       import Ecto.Query
 
 
       # The default endpoint for testing
-      @endpoint Server.Endpoint
+      @endpoint Broccoli.Endpoint
     end
   end
 
   setup tags do
-    :ok = Ecto.Adapters.SQL.Sandbox.checkout(Server.Repo)
+    :ok = Ecto.Adapters.SQL.Sandbox.checkout(Broccoli.Repo)
 
     unless tags[:async] do
-      Ecto.Adapters.SQL.Sandbox.mode(Server.Repo, {:shared, self()})
+      Ecto.Adapters.SQL.Sandbox.mode(Broccoli.Repo, {:shared, self()})
     end
 
     :ok

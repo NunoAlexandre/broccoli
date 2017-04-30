@@ -1,12 +1,12 @@
-defmodule Server.Web do
+defmodule Broccoli.Web do
   @moduledoc """
   A module that keeps using definitions for controllers,
   views and so on.
 
   This can be used in your application as:
 
-      use Server.Web, :controller
-      use Server.Web, :view
+      use Broccoli.Web, :controller
+      use Broccoli.Web, :view
 
   The definitions below will be executed for every view,
   controller, etc, so keep them short and clean, focused
@@ -30,12 +30,12 @@ defmodule Server.Web do
     quote do
       use Phoenix.Controller
 
-      alias Server.Repo
+      alias Broccoli.Repo
       import Ecto
       import Ecto.Query
 
-      import Server.Router.Helpers
-      import Server.Gettext
+      import Broccoli.Router.Helpers
+      import Broccoli.Gettext
     end
   end
 
@@ -49,9 +49,9 @@ defmodule Server.Web do
       # Use all HTML functionality (forms, tags, etc)
       use Phoenix.HTML
 
-      import Server.Router.Helpers
-      import Server.ErrorHelpers
-      import Server.Gettext
+      import Broccoli.Router.Helpers
+      import Broccoli.ErrorHelpers
+      import Broccoli.Gettext
     end
   end
 
@@ -65,10 +65,10 @@ defmodule Server.Web do
     quote do
       use Phoenix.Channel
 
-      alias Server.Repo
+      alias Broccoli.Repo
       import Ecto
       import Ecto.Query
-      import Server.Gettext
+      import Broccoli.Gettext
     end
   end
 

@@ -1,5 +1,5 @@
-defmodule Server.PageController do
-  use Server.Web, :controller
+defmodule Broccoli.PageController do
+  use Broccoli.Web, :controller
 
   def index(conn, _params) do
     render conn, "index.html"

@@ -1,3 +1,3 @@
-defmodule Server.PageViewTest do
-  use Server.ConnCase, async: true
+defmodule Broccoli.PageViewTest do
+  use Broccoli.ConnCase, async: true
 end

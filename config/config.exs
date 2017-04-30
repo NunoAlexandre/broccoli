@@ -6,21 +6,21 @@
 use Mix.Config
 
 # General application configuration
-config :server,
-  ecto_repos: [Server.Repo]
+config :broccoli,
+  ecto_repos: [Broccoli.Repo]
 
 # Authentication Configuration
 config :doorman,
-  repo: Server.Repo,
+  repo: Broccoli.Repo,
   secure_with: Doorman.Auth.Bcrypt,
-  user_module: Server.User
+  user_module: Broccoli.User
 
 # Configures the endpoint
-config :server, Server.Endpoint,
+config :broccoli, Broccoli.Endpoint,
   url: [host: "localhost"],
   secret_key_base: "scBwVnygA54MhO86fnatuU9chV4JweHwFMIa82wRAnv97y/iv2cd32sxORHb56xY",
-  render_errors: [view: Server.ErrorView, accepts: ~w(html json)],
-  pubsub: [name: Server.PubSub,
+  render_errors: [view: Broccoli.ErrorView, accepts: ~w(html json)],
+  pubsub: [name: Broccoli.PubSub,
            adapter: Phoenix.PubSub.PG2]
 
 # Configures Elixir's Logger

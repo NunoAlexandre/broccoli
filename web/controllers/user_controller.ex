@@ -1,7 +1,7 @@
-defmodule Server.UserController do
-  use Server.Web, :controller
+defmodule Broccoli.UserController do
+  use Broccoli.Web, :controller
 
-  alias Server.User
+  alias Broccoli.User
   
 
   def create(conn, %{"user" => user_params}) do
@@ -16,7 +16,7 @@ defmodule Server.UserController do
       {:error, changeset} ->
         conn
         |> put_status(:unprocessable_entity)
-        |> render(Server.ChangesetView, "error.json", changeset: changeset)
+        |> render(Broccoli.ChangesetView, "error.json", changeset: changeset)
     end
   end
 
@@ -35,7 +35,7 @@ defmodule Server.UserController do
       {:error, changeset} ->
         conn
         |> put_status(:unprocessable_entity)
-        |> render(Server.ChangesetView, "error.json", changeset: changeset)
+        |> render(Broccoli.ChangesetView, "error.json", changeset: changeset)
     end
   end
 

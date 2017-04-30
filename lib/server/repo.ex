@@ -1,3 +1,3 @@
-defmodule Server.Repo do
-  use Ecto.Repo, otp_app: :server
+defmodule Broccoli.Repo do
+  use Ecto.Repo, otp_app: :broccoli
 end

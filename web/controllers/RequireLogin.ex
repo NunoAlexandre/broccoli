@@ -1,4 +1,4 @@
-defmodule Server.RequireLogin do
+defmodule Broccoli.RequireLogin do
   import Plug.Conn
 
   def init(opts), do: opts

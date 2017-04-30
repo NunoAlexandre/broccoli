@@ -1,8 +1,8 @@
-defmodule Server.UserSocket do
+defmodule Broccoli.UserSocket do
   use Phoenix.Socket
 
   ## Channels
-  # channel "room:*", Server.RoomChannel
+  # channel "room:*", Broccoli.RoomChannel
 
   ## Transports
   transport :websocket, Phoenix.Transports.WebSocket,
@@ -31,7 +31,7 @@ defmodule Server.UserSocket do
   # Would allow you to broadcast a "disconnect" event and terminate
   # all active sockets and channels for a given user:
   #
-  #     Server.Endpoint.broadcast("users_socket:#{user.id}", "disconnect", %{})
+  #     Broccoli.Endpoint.broadcast("users_socket:#{user.id}", "disconnect", %{})
   #
   # Returning `nil` makes this socket anonymous.
   def id(_socket), do: nil

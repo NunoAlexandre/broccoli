@@ -1,7 +1,7 @@
-defmodule Server.UserDayTest do
-  use Server.ModelCase
+defmodule Broccoli.UserDayTest do
+  use Broccoli.ModelCase
 
-  alias Server.UserDay
+  alias Broccoli.UserDay
 
   @valid_attrs %{user_id: 1, day: %{day: 17, month: 4, year: 2010}, level: :eight, note: "some content"}
   @empty_attrs %{}

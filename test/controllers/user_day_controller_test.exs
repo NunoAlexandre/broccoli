@@ -1,7 +1,7 @@
-defmodule Server.UserDayControllerTest do
-  use Server.ConnCase
+defmodule Broccoli.UserDayControllerTest do
+  use Broccoli.ConnCase
 
-  alias Server.UserDay
+  alias Broccoli.UserDay
   @invalid_attrs %{day: %{day: 17, month: 4, year: 2010}, level: :seven, note: "some content"}
 
   setup %{conn: conn} do
@@ -55,13 +55,13 @@ defmodule Server.UserDayControllerTest do
   end
 
   defp valid_user_day do
-    {:ok, user} = Repo.insert Server.User.create_changeset(%Server.User{},
+    {:ok, user} = Repo.insert Broccoli.User.create_changeset(%Broccoli.User{},
             %{email: "an email", password: "some content", name: "some content"})
     %{user_id: user.id, day: %{day: 17, month: 4, year: 2010},
             level: :eight, note: "some content"}
   end
 
   defp inserted_user_day do
-    Repo.insert! Server.UserDay.changeset(%UserDay{}, valid_user_day())
+    Repo.insert! Broccoli.UserDay.changeset(%UserDay{}, valid_user_day())
   end
 end

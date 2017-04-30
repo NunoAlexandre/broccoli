@@ -1,5 +1,5 @@
-defmodule Server.Router do
-  use Server.Web, :router
+defmodule Broccoli.Router do
+  use Broccoli.Web, :router
 
   pipeline :browser do
     plug :accepts, ["html"]
@@ -14,14 +14,14 @@ defmodule Server.Router do
     plug :accepts, ["json"]
   end
 
-  scope "/", Server do
+  scope "/", Broccoli do
     pipe_through :browser
 
     get "/", PageController, :index
 
   end
 
-  scope "/api", Server do
+  scope "/api", Broccoli do
     pipe_through :api
 
     resources "/users", UserController, except: [:new, :edit, :index]

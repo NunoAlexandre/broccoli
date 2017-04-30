@@ -1,3 +1,3 @@
-defmodule Server.PageView do
-  use Server.Web, :view
+defmodule Broccoli.PageView do
+  use Broccoli.Web, :view
 end

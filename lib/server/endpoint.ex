@@ -1,14 +1,14 @@
-defmodule Server.Endpoint do
-  use Phoenix.Endpoint, otp_app: :server
+defmodule Broccoli.Endpoint do
+  use Phoenix.Endpoint, otp_app: :broccoli
 
-  socket "/socket", Server.UserSocket
+  socket "/socket", Broccoli.UserSocket
 
   # Serve at "/" the static files from "priv/static" directory.
   #
   # You should set gzip to true if you are running phoenix.digest
   # when deploying your static files in production.
   plug Plug.Static,
-    at: "/", from: :server, gzip: false,
+    at: "/", from: :broccoli, gzip: false,
     only: ~w(css fonts images js favicon.ico robots.txt)
 
   # Code reloading can be explicitly enabled under the
@@ -38,5 +38,5 @@ defmodule Server.Endpoint do
     key: "_server_key",
     signing_salt: "dLUChLQY"
 
-  plug Server.Router
+  plug Broccoli.Router
 end

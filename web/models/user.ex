@@ -1,5 +1,5 @@
-defmodule Server.User do
-  use Server.Web, :model
+defmodule Broccoli.User do
+  use Broccoli.Web, :model
   import Doorman.Auth.Bcrypt, only: [hash_password: 1]
 
   schema "user" do

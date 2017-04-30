@@ -1,4 +1,4 @@
-defmodule Server.ConnCase do
+defmodule Broccoli.ConnCase do
   @moduledoc """
   This module defines the test case to be used by
   tests that require setting up a connection.
@@ -20,23 +20,23 @@ defmodule Server.ConnCase do
       # Import conveniences for testing with connections
       use Phoenix.ConnTest
 
-      alias Server.Repo
+      alias Broccoli.Repo
       import Ecto
       import Ecto.Changeset
       import Ecto.Query
 
-      import Server.Router.Helpers
+      import Broccoli.Router.Helpers
 
       # The default endpoint for testing
-      @endpoint Server.Endpoint
+      @endpoint Broccoli.Endpoint
     end
   end
 
   setup tags do
-    :ok = Ecto.Adapters.SQL.Sandbox.checkout(Server.Repo)
+    :ok = Ecto.Adapters.SQL.Sandbox.checkout(Broccoli.Repo)
 
     unless tags[:async] do
-      Ecto.Adapters.SQL.Sandbox.mode(Server.Repo, {:shared, self()})
+      Ecto.Adapters.SQL.Sandbox.mode(Broccoli.Repo, {:shared, self()})
     end
 
     {:ok, conn: Phoenix.ConnTest.build_conn()}

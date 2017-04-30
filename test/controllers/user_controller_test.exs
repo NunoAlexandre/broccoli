@@ -1,7 +1,7 @@
-defmodule Server.UserControllerTest do
-  use Server.ConnCase
+defmodule Broccoli.UserControllerTest do
+  use Broccoli.ConnCase
 
-  alias Server.User
+  alias Broccoli.User
   @valid_attrs_create %{email: "some content", password: "some content", name: "some content"}
   @valid_attrs %{email: "some content", name: "some content"}
   @invalid_attrs %{email: nil}
@@ -59,6 +59,6 @@ defmodule Server.UserControllerTest do
 
 
   defp inserted_user do
-    Repo.insert! Server.User.create_changeset(%User{}, @valid_attrs_create)
+    Repo.insert! Broccoli.User.create_changeset(%User{}, @valid_attrs_create)
   end
 end

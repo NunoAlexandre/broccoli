@@ -1,4 +1,4 @@
-defmodule Server.Repo.Migrations.CreateUserDay do
+defmodule Broccoli.Repo.Migrations.CreateUserDay do
   use Ecto.Migration
 
   def change do

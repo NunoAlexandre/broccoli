@@ -1,5 +1,5 @@
-defmodule Server.ErrorView do
-  use Server.Web, :view
+defmodule Broccoli.ErrorView do
+  use Broccoli.Web, :view
 
   def render("404.html", _assigns) do
     "Page not found"

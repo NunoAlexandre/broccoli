@@ -1,5 +1,5 @@
-defmodule Server.UserDay do
-  use Server.Web, :model
+defmodule Broccoli.UserDay do
+  use Broccoli.Web, :model
 
   @derive {Poison.Encoder, only: [:user_id, :day, :note, :level]}
 
@@ -7,7 +7,7 @@ defmodule Server.UserDay do
     field :day, Ecto.Date
     field :level, Level
     field :note, :string
-    belongs_to :user, Server.User
+    belongs_to :user, Broccoli.User
 
 
     timestamps()

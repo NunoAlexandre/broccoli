@@ -1,5 +1,5 @@
-defmodule Server.PageControllerTest do
-  use Server.ConnCase
+defmodule Broccoli.PageControllerTest do
+  use Broccoli.ConnCase
 
   test "GET /", %{conn: conn} do
     conn = get conn, "/"

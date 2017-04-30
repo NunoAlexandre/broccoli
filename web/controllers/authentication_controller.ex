@@ -1,5 +1,5 @@
-defmodule Server.AuthenticationController do
-  use Server.Web, :controller
+defmodule Broccoli.AuthenticationController do
+  use Broccoli.Web, :controller
 
 
   def index(conn, %{"credentials" => %{"email" => email, "password" => password}}) do

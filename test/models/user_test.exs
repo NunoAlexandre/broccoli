@@ -1,7 +1,7 @@
-defmodule Server.UserTest do
-  use Server.ModelCase
+defmodule Broccoli.UserTest do
+  use Broccoli.ModelCase
 
-  alias Server.User
+  alias Broccoli.User
 
   @valid_attrs %{email: "some content", password: "some content", name: "some content"}
   @invalid_attrs %{}

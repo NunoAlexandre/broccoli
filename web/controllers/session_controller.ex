@@ -1,5 +1,5 @@
-defmodule Server.SessionController do
-  use Server.Web, :controller
+defmodule Broccoli.SessionController do
+  use Broccoli.Web, :controller
   import Doorman.Login.Session, only: [login: 2]
 
   def create(conn, %{"session" => %{"email" => email, "password" => password}}) do

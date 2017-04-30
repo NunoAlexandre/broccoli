@@ -1,3 +1,3 @@
-defmodule Server.LayoutView do
-  use Server.Web, :view
+defmodule Broccoli.LayoutView do
+  use Broccoli.Web, :view
 end

@@ -1,4 +1,4 @@
-defmodule Server.ErrorHelpers do
+defmodule Broccoli.ErrorHelpers do
   @moduledoc """
   Conveniences for translating and building error messages.
   """
@@ -32,9 +32,9 @@ defmodule Server.ErrorHelpers do
     #     dgettext "errors", "is invalid"
     #
     if count = opts[:count] do
-      Gettext.dngettext(Server.Gettext, "errors", msg, msg, count, opts)
+      Gettext.dngettext(Broccoli.Gettext, "errors", msg, msg, count, opts)
     else
-      Gettext.dgettext(Server.Gettext, "errors", msg, opts)
+      Gettext.dgettext(Broccoli.Gettext, "errors", msg, opts)
     end
   end
 end

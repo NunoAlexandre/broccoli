@@ -1,3 +1,3 @@
-defmodule Server.LayoutViewTest do
-  use Server.ConnCase, async: true
+defmodule Broccoli.LayoutViewTest do
+  use Broccoli.ConnCase, async: true
 end

@@ -1,7 +1,7 @@
-defmodule Server.UserDayController do
-  use Server.Web, :controller
+defmodule Broccoli.UserDayController do
+  use Broccoli.Web, :controller
 
-  alias Server.UserDay
+  alias Broccoli.UserDay
 
   def index(conn, _params) do
     user_day = Repo.all(UserDay)
@@ -20,7 +20,7 @@ defmodule Server.UserDayController do
       {:error, changeset} ->
         conn
         |> put_status(:unprocessable_entity)
-        |> render(Server.ChangesetView, "error.json", changeset: changeset)
+        |> render(Broccoli.ChangesetView, "error.json", changeset: changeset)
     end
   end
 
@@ -39,7 +39,7 @@ defmodule Server.UserDayController do
       {:error, changeset} ->
         conn
         |> put_status(:unprocessable_entity)
-        |> render(Server.ChangesetView, "error.json", changeset: changeset)
+        |> render(Broccoli.ChangesetView, "error.json", changeset: changeset)
     end
   end
 

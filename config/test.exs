@@ -2,7 +2,7 @@ use Mix.Config
 
 # We don't run a server during test. If one is required,
 # you can enable the server option below.
-config :server, Server.Endpoint,
+config :broccoli, Broccoli.Endpoint,
   http: [port: 4001],
   server: false
 
@@ -10,7 +10,7 @@ config :server, Server.Endpoint,
 config :logger, level: :warn
 
 # Configure your database
-config :server, Server.Repo,
+config :broccoli, Broccoli.Repo,
   adapter: Ecto.Adapters.Postgres,
   username: "postgres",
   password: "",

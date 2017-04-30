@@ -1,6 +1,7 @@
-# Server
+[![Build Status](https://travis-ci.org/NunoAlexandre/broccoli.svg?branch=master)](https://travis-ci.org/NunoAlexandre/broccoli)
+# Broccoli
 
-To start your Phoenix app:
+To start this api, follow these steps:
 
   * Install dependencies with `mix deps.get`
   * Create and migrate your database with `mix ecto.create && mix ecto.migrate`
@@ -9,7 +10,7 @@ To start your Phoenix app:
 
 Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
 
-Ready to run in production? Please [check our deployment guides](http://www.phoenixframework.org/docs/deployment).
+
 
 ## Learn more
 

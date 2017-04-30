@@ -1,15 +1,21 @@
 language: elixir
 elixir:
-  - 1.4.2
+- 1.4.2
 otp_release:
-  - 19.0
-env: MIX_ENV=test
+- 19.0
 services:
   - postgresql
 sudo: false
 notifications:
   email: false
+env: MIX_ENV=test
 before_script:
-  - psql -c 'create database broccoli_test;' -U postgres
+- psql -c 'create database broccoli_test;' -U postgres
 script:
-  - mix test
+- mix test
+deploy:
+  provider: heroku
+  app: nabroccoli
+  api_key:
+    secure: R93YYjm3y0EB1KFJO5mqY3ce044Wxhait0xm8xybj+ZoVfZ/E53LdTjgSi8MyBy0a1jpv2l8jYNvduDHRm0eHH94c1vQzn5PMcDSBgErIyeITohAYRVrR8sVIPkQu0VvuZA6LdtCprBaLX958SZrauPxK/r5g2DGnF6RKLPKvjwemM8sP60iG2RkkTyt3BhEFJZ1ZERWdpeLwNwPOe+lPCAwd/ayqk3zSPzaHAixUAqgynTCUFCycstYTZzARVQhX9LQNOFvVwuMzVEmmCJNpUjQFVAEM2mKpmdDNpkTnzFUX3hRRZ3LJXv7uwCvvaZwZio3l1sNPjr2JL3kDmHPDC3UqlRw4bW04cb1fjohWW6TknFfTRpvzIlKgsLooHGAEIXw/c+B+LExudr0y34kHENSDL03/JbafnSzNsaBGiN/xfqFI+bMEddunCUOzayQKC/GpvKYGTGQuESXRakociCLaGfsp4m6Vbx18CW6ypeUizOsPpfyldVDRPrxt7NUJtHY32mm6fSIxjt6VLEgZMQp8XvmAYT199ha3hDj46RCns7HBy4q5oPRMb9j3TJS4hS82oK8uquBxDdnLFSGfTbtkobxewxC1Ihf7IkC0rlboWOixfHxpNoNbHVTOoLTdZK4Mz924AwOkUAZt5zRXjFgh06/MReZ7CeuGOiZTAY=
+  run: "mix ecto.migrate"

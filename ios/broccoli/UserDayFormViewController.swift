@@ -34,7 +34,6 @@ class UserDayFormViewController: FormViewController {
             <<< ButtonRow() { row in
                 row.title = "Save"
                 row.cell.height = {90}
-                row.disabled = Condition.function(["submission"], { form in form.allRows[0].isValid })
                 }
                 .onCellSelection {  cell, row in
                     let styled = DateFormatter()

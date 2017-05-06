@@ -12,14 +12,14 @@ defmodule Broccoli.Mixfile do
      aliases: aliases(),
      deps: deps()]
   end
-
+  
   # Configuration for the OTP application.
   #
   # Type `mix help compile.app` for more information.
   def application do
     [mod: {Broccoli, []},
-     applications: [:phoenix, :phoenix_pubsub, :phoenix_html, :cowboy, :logger, :gettext,
-                    :phoenix_ecto, :postgrex]]
+     applications: [:phoenix, :phoenix_pubsub, :phoenix_html, :cowboy, :logger,
+                    :gettext, :phoenix_ecto, :postgrex, :guardian]]
   end
 
   # Specifies which paths to compile per environment.
@@ -35,11 +35,12 @@ defmodule Broccoli.Mixfile do
      {:phoenix_ecto, "~> 3.0"},
      {:postgrex, ">= 0.0.0"},
      {:phoenix_html, "~> 2.6"},
-     {:phoenix_live_reload, "~> 1.0", only: :dev},
+     {:phoenix_live_reload, "~> 1.0"},
      {:gettext, "~> 0.11"},
      {:cowboy, "~> 1.0"},
      {:doorman, "~> 0.5.1"},
-     {:ecto_enum, "~> 1.0"}
+     {:ecto_enum, "~> 1.0"},
+     {:guardian, "~> 0.14"}
     ]
   end
 

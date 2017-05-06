@@ -28,6 +28,15 @@ config :logger, :console,
   format: "$time $metadata[$level] $message\n",
   metadata: [:request_id]
 
+config :guardian, Guardian,
+  allowed_algos: ["HS256"],
+  verify_module: Guardian.JWT,
+  issuer: "nalexandre.eu.auth0.com",
+  allowed_drift: 2000,
+  verify_issuer: false,
+  secret_key: System.get_env("AUTH0_APP_SECRET"),
+  serializer: Broccoli.GuardianSerializer
+
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
 import_config "#{Mix.env}.exs"

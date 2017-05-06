@@ -17,3 +17,13 @@ config :broccoli, Broccoli.Repo,
   database: "broccoli_test",
   hostname: "localhost",
   pool: Ecto.Adapters.SQL.Sandbox
+
+config :guardian, Guardian,
+  allowed_algos: ["HS256"],
+  verify_module: Guardian.JWT,
+  issuer: "broccoli.nalexandre.test",
+  ttl: { 30, :days },
+  allowed_drift: 2000,
+  verify_issuer: false,
+  secret_key: "qwerty123456",
+  serializer: Broccoli.GuardianSerializer

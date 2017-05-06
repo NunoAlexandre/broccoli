@@ -5,8 +5,11 @@ defmodule Broccoli.UserDayControllerTest do
   @invalid_attrs %{day: %{day: 17, month: 4, year: 2010}, level: :seven, note: "some content"}
 
   setup %{conn: conn} do
-    {:ok, conn: put_req_header(conn, "accept", "application/json")}
-  end
+     conn = conn
+        |> put_req_header("accept", "application/json")
+        |> put_req_header("authorization",  "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJicm9jY29saS5uYWxleGFuZHJlLnRlc3QiLCJpYXQiOjE0OTQwOTU2NTEsImV4cCI6MzMwODI1NDA0NTEsImF1ZCI6InRlc3QiLCJzdWIiOiJ0ZXN0In0.JRwyymlxlWdybR91vmo1keQtmcaQiZIZEQ2MoFXdrCE")
+     {:ok, conn: conn}
+   end
 
   test "lists all entries on index", %{conn: conn} do
     conn = get conn, user_day_path(conn, :index)

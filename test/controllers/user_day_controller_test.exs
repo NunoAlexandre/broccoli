@@ -3,11 +3,12 @@ defmodule Broccoli.UserDayControllerTest do
 
   alias Broccoli.UserDay
   @invalid_attrs %{day: %{day: 17, month: 4, year: 2010}, level: :seven, note: "some content"}
+  @valid_auth0_token "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJicm9jY29saS5uYWxleGFuZHJlLnRlc3QiLCJpYXQiOjE0OTQxMDQzOTIsImV4cCI6MzMwODI1NDkxOTIsImF1ZCI6InRlc3QiLCJzdWIiOiJhdXRoMHw1OTA4ZTQ3MThmY2I2MW5wMzg3ZTIzZjIifQ.urFUtu9x6dHH2A4UDAAefIgGZSk_2eTWGE-c1DYTEfs"
 
   setup %{conn: conn} do
      conn = conn
         |> put_req_header("accept", "application/json")
-        |> put_req_header("authorization",  "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJicm9jY29saS5uYWxleGFuZHJlLnRlc3QiLCJpYXQiOjE0OTQwOTU2NTEsImV4cCI6MzMwODI1NDA0NTEsImF1ZCI6InRlc3QiLCJzdWIiOiJ0ZXN0In0.JRwyymlxlWdybR91vmo1keQtmcaQiZIZEQ2MoFXdrCE")
+        |> put_req_header("authorization",  "Bearer " <> @valid_auth0_token)
      {:ok, conn: conn}
    end
 

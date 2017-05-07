@@ -7,7 +7,7 @@ defmodule Broccoli.UserDay do
     field :day, Ecto.Date
     field :level, Level
     field :note, :string
-    belongs_to :user, Broccoli.User
+    field :user_id, :string
 
 
     timestamps()
@@ -17,7 +17,6 @@ defmodule Broccoli.UserDay do
   def changeset(struct, params \\ %{}) do
     struct
     |> cast(params, [:note, :day, :level, :user_id])
-    |> cast_assoc(:user)
     |> validate_required([:user_id, :day, :level])
     |> unique_constraint(:single_user_day, name: :single_user_day)
   end

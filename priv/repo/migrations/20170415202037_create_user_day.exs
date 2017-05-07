@@ -7,14 +7,14 @@ defmodule Broccoli.Repo.Migrations.CreateUserDay do
       add :day, :date, null: false
       add :level, :level, null: false
       add :note, :string, null: false, size: 700, default: ""
-      add :user_id, :string, null: false
+      add :uid, :string, null: false
 
 
       timestamps()
     end
 
     create index(:user_day, [:level])
-    create unique_index(:user_day, [:user_id, :day], name: :single_user_day)
+    create unique_index(:user_day, [:uid, :day], name: :single_user_day)
   end
 
   def down do

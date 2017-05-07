@@ -2,6 +2,7 @@ defmodule Broccoli.UserDayControllerTest do
   use Broccoli.ConnCase
 
   alias Broccoli.UserDay
+  @valid_attrs %{user_id: "5908e4718fcb61np387e23f2", day: %{day: 7, month: 5, year: 2017}, level: :eight, note: "some content"}
   @invalid_attrs %{day: %{day: 17, month: 4, year: 2010}, level: :seven, note: "some content"}
   @valid_auth0_token "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJicm9jY29saS5uYWxleGFuZHJlLnRlc3QiLCJpYXQiOjE0OTQxMDQzOTIsImV4cCI6MzMwODI1NDkxOTIsImF1ZCI6InRlc3QiLCJzdWIiOiJhdXRoMHw1OTA4ZTQ3MThmY2I2MW5wMzg3ZTIzZjIifQ.urFUtu9x6dHH2A4UDAAefIgGZSk_2eTWGE-c1DYTEfs"
 
@@ -34,10 +35,9 @@ defmodule Broccoli.UserDayControllerTest do
   end
 
   test "creates and renders resource when data is valid", %{conn: conn} do
-    valid_attrs = valid_user_day()
-    conn = post conn, user_day_path(conn, :create), user_day: valid_attrs
+    conn = post conn, user_day_path(conn, :create), user_day: @valid_attrs
     assert json_response(conn, 201)["data"]["id"]
-    assert Repo.get_by(UserDay, valid_attrs)
+    assert Repo.get_by(UserDay, @valid_attrs)
   end
 
   test "does not create resource and renders errors when data is invalid", %{conn: conn} do
@@ -46,8 +46,7 @@ defmodule Broccoli.UserDayControllerTest do
   end
 
   test "does not update chosen resource and renders errors when data is invalid", %{conn: conn} do
-    user_day = inserted_user_day()
-    conn = put conn, user_day_path(conn, :update, user_day), user_day: @invalid_attrs
+    conn = put conn, user_day_path(conn, :update, inserted_user_day()), user_day: @invalid_attrs
     assert json_response(conn, 422)["errors"] != %{}
   end
 
@@ -58,14 +57,8 @@ defmodule Broccoli.UserDayControllerTest do
     refute Repo.get(UserDay, user_day.id)
   end
 
-  defp valid_user_day do
-    {:ok, user} = Repo.insert Broccoli.User.create_changeset(%Broccoli.User{},
-            %{email: "an email", password: "some content", name: "some content"})
-    %{user_id: user.id, day: %{day: 17, month: 4, year: 2010},
-            level: :eight, note: "some content"}
-  end
 
   defp inserted_user_day do
-    Repo.insert! Broccoli.UserDay.changeset(%UserDay{}, valid_user_day())
+    Repo.insert! Broccoli.UserDay.changeset(%UserDay{}, @valid_attrs())
   end
 end

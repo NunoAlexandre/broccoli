@@ -13,7 +13,7 @@
   <tbody>
 <%= for user_day <- @user_day do %>
     <tr>
-      <td><%= user_day.user_id %></td>
+      <td><%= user_day.uid %></td>
       <td><%= user_day.level %></td>
       <td><%= user_day.note %></td>
 

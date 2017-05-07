@@ -1,13 +1,13 @@
 defmodule Broccoli.UserDay do
   use Broccoli.Web, :model
-
-  @derive {Poison.Encoder, only: [:user_id, :day, :note, :level]}
+  alias Broccoli.UserDay
+  @derive {Poison.Encoder, only: [:uid, :day, :note, :level]}
 
   schema "user_day" do
     field :day, Ecto.Date
     field :level, Level
     field :note, :string
-    field :user_id, :string
+    field :uid, :string
 
 
     timestamps()
@@ -16,8 +16,11 @@ defmodule Broccoli.UserDay do
 
   def changeset(struct, params \\ %{}) do
     struct
-    |> cast(params, [:note, :day, :level, :user_id])
-    |> validate_required([:user_id, :day, :level])
+    |> cast(params, [:note, :day, :level, :uid])
+    |> validate_required([:uid, :day, :level])
     |> unique_constraint(:single_user_day, name: :single_user_day)
   end
+
+  def by_uid(uid), do: from ud in UserDay, where: ud.uid == ^uid
+
 end

@@ -14,7 +14,7 @@ defmodule Broccoli.UserSocket do
   # verification, you can put default assigns into
   # the socket that will be set for all channels, ie
   #
-  #     {:ok, assign(socket, :user_id, verified_user_id)}
+  #     {:ok, assign(socket, :uid, verified_uid)}
   #
   # To deny connection, return `:error`.
   #
@@ -26,7 +26,7 @@ defmodule Broccoli.UserSocket do
 
   # Socket id's are topics that allow you to identify all sockets for a given user:
   #
-  #     def id(socket), do: "users_socket:#{socket.assigns.user_id}"
+  #     def id(socket), do: "users_socket:#{socket.assigns.uid}"
   #
   # Would allow you to broadcast a "disconnect" event and terminate
   # all active sockets and channels for a given user:

@@ -1,15 +1,15 @@
 defmodule Broccoli.UserDayController do
   use Broccoli.Web, :controller
 
-  alias Broccoli.UserDay
+  alias Broccoli.{UserDay, User}
 
-  def index(conn, _params) do
-    user_day = Repo.all(UserDay)
-    render(conn, "index.json", user_day: user_day)
+  def index(conn, _) do
+    user_days = Repo.all(UserDay.by_uid(User.id(conn)))
+    render(conn, "index.json", user_day: user_days)
   end
 
   def create(conn, %{"user_day" => user_day_params}) do
-    changeset = UserDay.changeset(%UserDay{}, user_day_params)
+    changeset = UserDay.changeset(%UserDay{uid: User.id(conn)}, user_day_params)
 
     case Repo.insert(changeset) do
       {:ok, user_day} ->

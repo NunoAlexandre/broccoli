@@ -11,7 +11,7 @@ defmodule Broccoli.UserDayView do
 
   def render("user_day.json", %{user_day: user_day}) do
     %{id: user_day.id,
-      user_id: user_day.user_id,
+      uid: user_day.uid,
       day: user_day.day,
       level: user_day.level,
       note: user_day.note}

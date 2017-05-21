@@ -27,7 +27,6 @@ defmodule Broccoli.Router do
   scope "/api", Broccoli do
     pipe_through :api
 
-    resources "/users", UserController, except: [:new, :edit, :index]
     resources "/days", UserDayController, except: [:new, :edit]
     post "/authenticate", AuthenticationController, :index
 

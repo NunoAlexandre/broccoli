@@ -21,6 +21,6 @@ defmodule Broccoli.UserDay do
     |> unique_constraint(:single_user_day, name: :single_user_day)
   end
 
-  def by_uid(uid), do: from ud in UserDay, where: ud.uid == ^uid
+  def by_uid(uid), do: from ud in UserDay, where: ud.uid == ^uid, order_by: [asc: ud.day]
 
 end

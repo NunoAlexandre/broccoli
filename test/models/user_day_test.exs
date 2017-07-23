@@ -7,7 +7,7 @@ defmodule Broccoli.UserDayTest do
   @valid_attrs %{uid: "1jkehfgrjdvb", day: %{day: 17, month: 4, year: 2010}, level: 7, note: "some content"}
   @invalid_attrs %{uid: 837438792, day: %{day: 17, month: 4, year: 2010}, level: 8, note: "some content"}
 
-  test "changeset with valid attributes" do
+  test "changeset with level within range" do
     assert UserDay.changeset(%UserDay{}, user_day_with_level(1)).valid?
     assert UserDay.changeset(%UserDay{}, user_day_with_level(2)).valid?
     assert UserDay.changeset(%UserDay{}, user_day_with_level(3)).valid?
@@ -17,7 +17,7 @@ defmodule Broccoli.UserDayTest do
     assert UserDay.changeset(%UserDay{}, user_day_with_level(6)).valid?
   end
 
-  test "changeset with valid level within range" do
+  test "changeset with valid attributes" do
     changeset = UserDay.changeset(%UserDay{}, @valid_attrs)
     assert changeset.valid?
   end

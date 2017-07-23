@@ -5,7 +5,7 @@ defmodule Broccoli.UserDay do
 
   schema "user_day" do
     field :day, Ecto.Date
-    field :level, Level
+    field :level, :integer
     field :note, :string
     field :uid, :string
 
@@ -18,6 +18,7 @@ defmodule Broccoli.UserDay do
     struct
     |> cast(params, [:note, :day, :level, :uid])
     |> validate_required([:uid, :day, :level])
+    |> validate_inclusion(:level, 1..7)
     |> unique_constraint(:single_user_day, name: :single_user_day)
   end
 
